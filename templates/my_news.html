@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/my_news_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/my_profile_style.css' %}">
+{% endblock %}
+
+{% block page_title %}
+    <title>Мої новини</title>
+{% endblock %}
+
+{% block content %}
+
+    <div class="col col-md-3 slide">
+        {% include 'menu.html' %}
+    </div>
+    <div class="col col-md-9">
+        <div class="block_main_content">
+
+            <div class="content_card">
+                <div class="col-md-12">
+                    <h4>Block "{{ request.user }}" comment:</h4>
+                    <div class="row">
+                        {% if not news_model %}
+                            <h3>Ще не опубліковані новини</h3>
+                        {% else %}
+                            {% for item_news in news_model %}
+
+                                <div class="col-sm-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ item_news.user.username }}</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">{{ item_news.created }}</h6>
+                                            <hr>
+                                            <p class="card-text">{{ item_news.text_news }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+{% endblock content %}

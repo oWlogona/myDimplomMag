@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/profile_user_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/my_profile_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search_people_style.css' %}">
+{% endblock %}
+
+{% block page_title %}
+    <title>Пошук співрозмовника</title>
+{% endblock %}
+
+{% block content %}
+    <div class="col col-md-3 slide">
+        {% include 'menu.html' %}
+    </div>
+    <div class="col col-md-9">
+        <div class="block_main_content">
+
+            <div class="content_card">
+                <div class="row">
+                    {% for item_user in group_users %}
+                        <div class="col-md-2">
+                            <div class="user_card">
+                                <div class="col-md-12">
+                                    <span class="img_user">{{ item_user.user }}</span>
+                                </div>
+                                <hr>
+                                <div class="col-md-12">
+                                        <span class="goal_user">{{ item_user.user_sex }} <b>хочу</b>
+                                            <span class="goal_user">{{ item_user.purpose_of_dating }}</span>
+                                        </span>
+                                </div>
+                                <hr>
+                                <a class="btn btn_static" href="/profile_user/{{ item_user.user }}"
+                                   role="button" style="color: #ffffff; background-color: #1f5169;">Відвідати</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

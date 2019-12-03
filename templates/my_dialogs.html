@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/my_profile_style.css' %}">
+{% endblock %}
+
+{% block page_title %}
+    <title>Дiалоги</title>
+{% endblock %}
+
+{% block content %}
+
+    <div class="col col-md-3 slide">
+        {% include 'menu.html' %}
+    </div>
+    <div class="col col-md-9">
+
+        <div class="block_main_content">
+
+            <div class="content_card">
+                <div class="row">
+                    <div class="col col-md-2">
+
+                        {% for  dialog in dialogs %}
+                            <div class="user_card">
+                                <div class="col-md-12">
+                                    <span class="img_user">{{ dialog }}</span>
+                                </div>
+                                {#                                <div class="col-md-12">#}
+                                {#                                        <span class="goal_user">{{ item_user.user_sex }} <b>хочу</b>#}
+                                {#                                            <span class="goal_user">{{ item_user.purpose_of_dating }}</span>#}
+                                {#                                        </span>#}
+                                {#                                </div>#}
+                                <a class="btn btn_static btn-sm"
+                                   href="/create_dialog/{{ dialog.id }}/" role="button"
+                                   style="background-color: gray; color:#ffffff;">SPEAK</a>
+                            </div>
+
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock content %}

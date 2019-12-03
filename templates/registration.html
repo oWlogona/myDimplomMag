@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+{% endblock %}
+
+{% block page_title %}
+    <title>Реєстрація</title>
+{% endblock %}
+
+{% block content %}
+    <div class="col col-md-3 slide">
+        <div class="slide_header"><h3>CHAT FOR WHAT</h3></div>
+        <div class="slide_menu">
+            <div class="enter_or_register">
+                <button type="submit" class="btn btn_static btn_enter_reg">ВХОД</button>
+                <hr>
+                <button type="submit" class="btn btn_static btn_enter_reg">РЕГИСТРАЦИЯ</button>
+            </div>
+
+        </div>
+        <div class="slide_footer">
+            MAKE PRETTY MAN
+        </div>
+    </div>
+    <div class="col col-md-9">
+        <div class="main_content">
+            <div class="form_enter">
+                <form action="" method="post" class="form_begin">
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">username</span>
+                        </div>
+                        <input type="text" class="form-control" name="username" aria-label="Default"
+                               aria-describedby="inputGroup-sizing-default" placeholder="your name" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">password</span>
+                        </div>
+                        <input type="password" class="form-control" name="password" aria-label="Default"
+                               aria-describedby="inputGroup-sizing-default" placeholder="password" required>
+                    </div>
+                    <div class="col-md text-center">
+                        <input type="submit" class="btn btn-primary btn-sm" value="Зарегистрироваться">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,74 @@
+ <div class="row base_element">
+                <div class="col-md">
+                    
+                    <div class="col-md-12 title_card">Анонімне спілкування</div>
+                    <div class="container">
+                        <div class="row">
+                            <form action="/" method="post" class="form_begin">
+                                <div class="row">
+                                    <div class="col-md">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label for="sex" class="input-group-text">Ваш пол:</label>
+                                            </div>
+                                            <select name="user_one_sex" class="custom-select" id="inputGroupSelect01">
+                                                <option value="secret">Не скажчий</option>
+                                                <option value="male">Чоловічий</option>
+                                                <option value="female">жіночий</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label for="age" class="input-group-text">Ваш возраст: </label>
+                                            </div>
+                                            <select name="user_one_age" id="age" class="custom-select" id="inputGroupSelect02">
+                                                <option value="0">Не скажу</option>
+                                                <option value="17">від 17</option>
+                                                <option value="20">від 18 до 21</option>
+                                                <option value="23">від 22 до 25</option>
+                                                <option value="30">від 26 до 35</option>
+                                                <option value="40"> 36</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label for="sex" class="input-group-text">Співрозмовника: </label>
+                                            </div>
+                                            <select name="user_two_sex" class="custom-select" id="inputGroupSelect01">
+                                                <option value="secret">Не скажчий</option>
+                                                <option value="male">Чоловічий</option>
+                                                <option value="female">жіночий</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label for="age" class="input-group-text">Співрозмовника: </label>
+                                            </div>
+                                            <select name="user_two_age" id="age" class="custom-select" id="inputGroupSelect02">
+                                                <<option value="0">Не скажу</option>
+                                                <option value="17">від 17</option>
+                                                <option value="20">від 18 до 21</option>
+                                                <option value="23">від 22 до 25</option>
+                                                <option value="30">від 26 до 35</option>
+                                                <option value="40"> 36</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md text-center">
+                                        <input type="submit" class="btn btn-primary btn-sm" value="Начать беседу">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                        
+                    </div>
+
+                <div class="col-md line_separete">
+                    {% include 'my_user.html' %}
+                </div>
+            </div>
