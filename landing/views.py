@@ -2,32 +2,49 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.views import View
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
-def login_user(request):
-    if request.method == 'POST':
-        user_name = request.POST['user_name']
-        user_password = request.POST['user_password']
-        user = authenticate(request, username=user_name, password=user_password)
-        if user is not None:
-            print('ok')
+class UserLogin(View):
+    template_name = 'home.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, locals())
+
+    def post(self, request, *args, **kwargs):
+        user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
+        if user:
             login(request, user)
             url = '/get_profile/'
             return HttpResponseRedirect(url)
-        else:
-            print('not')
-    return render(request, 'home.html', locals())
+        return render(request, self.template_name, locals())
 
 
-def registration(request):
-    user = 'name'
-    if request.method == 'POST':
-        username = request.POST['username']
-        user_password = request.POST['password']
-        user = User.objects.create_user(
-            username, 'no_name@gmail.com', user_password)
-        user.save()
+class UserRegistration(View):
+    template_name = 'registration.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, locals())
+
+    def post(self, request, *args, **kwargs):
+        request_data = request.POST
+        if request_data.get('username') and request_data.get('password'):
+            user = User.objects.create_user(
+                username=request_data.get('username'),
+                email='{}@gmail.com'.format(request_data.get('username')),
+                password=request_data.get('password')
+            )
+            user.save()
+            url = '/'
+            return HttpResponseRedirect(url)
+        return render(request_data, self.template_name, locals())
+
+
+@method_decorator(login_required, name='dispatch')
+class UserLogOut(View):
+    def get(self, request, *args, **kwargs):
+        logout(request)
         url = '/'
         return HttpResponseRedirect(url)
-
-    return render(request, 'registration.html', locals())

@@ -3,9 +3,6 @@
 {% load static %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'css/profile_user_style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/my_profile_style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/my_news_style.css' %}">
 {% endblock %}
 
 {% block page_title %}
@@ -24,45 +21,39 @@
             <div class="content_card">
                 <div class="row">
                     <div class="col-md-12">
-                        {% if not user_check %}
-                            <h3>Ще не заповнені дані</h3>
-                            <a class="btn btn-primary btn-sm" href="/update_my_profile/" role="button">Заповнити
-                                дані</a>
-                        {% else %}
-                            <div class="row">
-                                <div class="col-md-offset-1 col-md-3">
-                                    <span class="profile_image">{{ user.user.username }}</span>
-                                </div>
-                                <div class="col-md-8">
-                                    <table class="list_user_data">
-                                        <tr>
-                                            <td class="title_data">userName</td>
-                                            <td class="data_inform">{{ user.user.username }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="title_data">Вік</td>
-                                            <td class="data_inform">{{ user.user_age }} роки</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="title_data">Стать</td>
-                                            <td class="data_inform">{{ user.user_sex }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="title_data">Мета знайомства</td>
-                                            <td class="data_inform">{{ user.purpose_of_dating }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="title_data">Куріння</td>
-                                            <td class="data_inform">{{ user.user_smook }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="title_data">Алкоголь</td>
-                                            <td class="data_inform">{{ user.user_alcogol }}</td>
-                                        </tr>
-                                    </table>
-                                </div>
+                        <div class="row">
+                            <div class="col-md-offset-1 col-md-3">
+                                <span class="profile_image">{{ user.user.username }}</span>
                             </div>
-                        {% endif %}
+                            <div class="col-md-8">
+                                <table class="list_user_data">
+                                    <tr>
+                                        <td class="title_data">userName</td>
+                                        <td class="data_inform">{{ user.user.username }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title_data">Вік</td>
+                                        <td class="data_inform">{{ user.user_age }} роки</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title_data">Стать</td>
+                                        <td class="data_inform">{{ user.user_sex }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title_data">Мета знайомства</td>
+                                        <td class="data_inform">{{ user.purpose_of_dating }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title_data">Куріння</td>
+                                        <td class="data_inform">{{ user.user_smook }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title_data">Алкоголь</td>
+                                        <td class="data_inform">{{ user.user_alcogol }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <hr>

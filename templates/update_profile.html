@@ -3,7 +3,6 @@
 {% load static %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'css/my_profile_style.css' %}">
 {% endblock %}
 
 {% block page_title %}
@@ -38,18 +37,17 @@
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">Вiк</span>
+                                    <span class="input-group-text" id="basic-user_age">Вiк</span>
                                 </div>
                                 <input type="number" min=6 max=100 class="form-control" name="user_age"
-                                       placeholder="16" aria-label="Username" aria-describedby="basic-addon1">
+                                       placeholder="16" id="user_age">
                             </div>
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <label for="age" class="input-group-text">Мета знайомства: </label>
+                                    <label for="purpose_of_dating" class="input-group-text">Мета знайомства: </label>
                                 </div>
-                                <select id="purpose_of_dating" name="purpose_of_dating" class="custom-select"
-                                        id="inputGroupSelect03">
+                                <select id="purpose_of_dating" name="purpose_of_dating" class="custom-select">
                                     <option value="Спілкування">Спілкування</option>
                                     <option value="Знайти Дружбу">Знайти Дружбу</option>
                                     <option value="Знайти Відносини">Знайти Відносини</option>
@@ -62,8 +60,7 @@
                                 <div class="input-group-prepend">
                                     <label for="smooking" class="input-group-text">Куріння: </label>
                                 </div>
-                                <select name="user_smook" id="smooking" name="smooking" class="custom-select"
-                                        id="inputGroupSelect04">
+                                <select id="user_smook" name="user_smook" class="custom-select">
                                     <option value="Не курю">Не курю</option>
                                     <option value="Iноді">Iноді</option>
                                     <option value="В компанії">В компанії</option>
@@ -72,10 +69,10 @@
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <label for="alcogol" class="input-group-text">Алкоголь: </label>
+                                    <label for="user_alcogol" class="input-group-text">Алкоголь: </label>
                                 </div>
-                                <select name="user_alcogol" id="alcogol" name="purpose_of_dating"
-                                        class="custom-select" id="inputGroupSelect05">
+                                <select id="user_alcogol" name="user_alcogol"
+                                        class="custom-select">
                                     <option value="Не п'ю">Не п'ю</option>
                                     <option value="Iноді">Iноді</option>
                                     <option value="В компанії">В компанії</option>

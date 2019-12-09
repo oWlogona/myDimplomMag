@@ -3,9 +3,6 @@
 {% load static %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'css/profile_user_style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/my_profile_style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/my_news_style.css' %}">
 {% endblock %}
 
 {% block page_title %}
@@ -61,7 +58,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <h4>Block "{{ request.user }}" comment:</h4>
+                        <h4>Block "{{ user_detail.user.username }}" comment:</h4>
                         <div class="row">
                             {% if not news_model %}
                                 <h3>Ще не опубліковані новини</h3>
